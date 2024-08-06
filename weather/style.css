@@ -1,0 +1,167 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Manrope;
+    box-sizing: border-box;
+}
+
+body {
+    background: #212121;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    background: linear-gradient(237deg, #2793F2 7.12%, rgba(73, 177, 242, 0.96) 41.79%, rgba(119, 230, 242, 0.92) 85.38%);
+    width: 90%;
+    max-width: 600px;
+    color: #F8F8F8;
+    margin: 30px auto 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    box-shadow:  2px 6px 10px 0px rgba(0, 0, 0, 0.35);
+    margin-bottom: 30px;
+}
+
+.search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px;
+}
+
+.search input {
+    border: 0;
+    outline: 0;
+    width: 400px;
+    height: 52px;
+    flex-shrink: 0;
+    border-radius: 50px;
+    background: #F8F8F8;
+    box-shadow: 2px 6px 10px 0px rgba(0, 0, 0, 0.35);
+    border: none;
+    color: #49487B;
+    font-family: Manrope;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    padding-left: 34px;
+}
+
+.search button {
+    width: 98px;
+    height: 52px;
+    flex-shrink: 0;
+    background: #185993;
+    border-radius: 50px;
+    border: none;
+    box-shadow: 2px 6px 10px 0px rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.search button img {
+    width: 41px;
+    height: 41px;
+    flex-shrink: 0;
+}
+
+.weather {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px;
+}
+
+.city {
+    color: #F8F8F8;
+    font-family: Ultra;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-bottom: 10px;
+}
+
+.linha {
+    width: 282px;
+    height: 3px;
+    border: #F8F8F8 solid 2px;
+}
+
+.temp {
+    color: #F8F8F8;
+    font-family: Ultra;
+    font-size: 100px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-top: 10px;
+}
+
+.treco {
+    color: #F8F8F8;
+    font-family: Manrope;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: 10px;
+}
+
+.details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin: 50px;
+}
+
+.details img {
+    width: 40px;
+    height: 40px;
+}
+
+.details .col {
+    width: 220px;
+    height: 80px;
+    flex-shrink: 0;
+    border-radius: 40px;
+    background: #185993;
+    box-shadow: 1px 3px 10px 0px rgba(0, 0, 0, 0.25);
+    margin: 0 20px;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.humidity, .wind {
+    font-family: Manrope;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.textinho {
+    font-family: Manrope;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.weather {
+    display: none;
+}

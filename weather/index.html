@@ -1,0 +1,91 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=KoHo:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Macondo+Swash+Caps&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=KoHo:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Macondo+Swash+Caps&family=Manrope:wght@200..800&family=Ultra&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="card">
+        <div class="search">
+            <input type="text" placeholder="enter city name" spellcheck="false">
+            <button><img src="img/lupa.svg" alt="pesquisa"></button>
+        </div>
+        <div class="weather">
+            <h2 class="city"> São Paulo </h2>
+            <hr class="linha">
+            <h1 class="temp"> 20°c</h1>
+            <p class="treco"> sunny </p>
+
+            <div class="details">
+                <div class="col">
+                    <img src="img/ondas-de-agua.svg" alt="humidity">
+                    <div>
+                        <p class="humidity">0%</p>
+                        <p class="textinho">Humidity</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="img/vento.svg" alt="humidity">
+                    <div>
+                        <p class="wind">0 km/h</p>
+                        <p class="textinho">Wind Speed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        
+        const apiKey = "53b8456cbbb08c99c5993f2bdcdfc652";
+        const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+
+        const searchBox = document.querySelector(".search input");
+        const searchBtn = document.querySelector(".search button");
+
+        searchBtn.addEventListener("click", ()=>{
+            checkWeather(searchBox.value);
+        })
+
+        async function checkWeather(city) {
+            const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+            var data = await response.json(); 
+
+            console.log(data);
+
+            document.querySelector(".city").innerHTML = data.name;
+            document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°c";
+            document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+            document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
+            document.querySelector(".treco").innerHTML = data.weather[0].description;
+
+            document.querySelector(".weather").style.display = "flex";
+
+            if(data.weather[0].main == "Rain"){
+                document.querySelector(".card").style.background = "linear-gradient(237deg, #050E16 7.12%, rgba(101, 127, 142, 0.91) 69.33%, #C2CFD0 85.38%)";
+            }
+            else if(data.weather[0].main == "Clouds"){
+                document.querySelector(".card").style.background = "linear-gradient(237deg, #4B5155 7.12%, rgba(101, 127, 142, 0.91) 50.55%, #C2CFD0 85.38%)";
+            }
+            else if(data.weather[0].main == "Clear"){
+                document.querySelector(".card").style.background = "linear-gradient(237deg, #2793F2 7.12%, rgba(73, 177, 242, 0.96) 41.79%, rgba(119, 230, 242, 0.92) 85.38%)";
+            }
+            else if(data.weather[0].main == "Drizzle"){
+                document.querySelector(".card").style.background = "linear-gradient(237deg, #0276BF 7.12%, rgba(101, 127, 142, 0.91) 50.55%, #C2CFD0 85.38%)";
+            }
+            else if(data.weather[0].main == "Mist"){
+                document.querySelector(".card").style.background = "linear-gradient(237deg, #55B2ED 7.12%, rgba(164, 196, 216, 0.91) 50.55%, #EBEDED 85.38%)";
+            }
+        }
+
+    </script>
+</body>
+</html>
